@@ -1,16 +1,34 @@
 package gm.pci.dto;
 
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+
 import java.math.BigDecimal;
 
 public class ProductoDTO {
     private Integer productoID;
+
+    @NotNull(message = "El nombre no puede estar vacío.")
     private String nombre;
+
+    @NotNull(message = "La marca es requerida.")
     private Integer marcaid;
+
     private String descripcion;
+
+    @NotNull(message = "El precio no puede estar vacío.")
     private BigDecimal precio;
+
+    @NotNull(message = "El stock no puede estar vacío.")
+    @Min(value = 0, message = "El stock debe ser un número positivo.")
     private Integer stock;
+
+    @NotNull(message = "La categoría es requerida.")
     private Integer categoriaid;
+
+    @NotNull(message = "El proveedor es requerido.")
     private Integer proveedorID;
+
     private Integer usuarioID;
 
     // Getters y setters
